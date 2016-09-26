@@ -17,72 +17,47 @@ Enter name of file in input: ProjectivePlane
 ```
 
 Program returns as output:
-the number of vertices and of top simplices of the simplicial complex in input, 
-the information about the 1-homology of the intersection of each standard decomposition,
-the time required to perform the computation.
+* the number of vertices and of top simplices of the simplicial complex in input, 
+* the information about the 1-homology of the intersection of each standard decomposition,
+* the time required to perform the computation.
 
-<br />
+Example:
 
-#####File Formats
+```
+Number of vertices is 6
+Number of top simplices is 4
+There exist both decompositions having intersection with null 1-homology and decompositions having intersection with non-null 1-homology
+Required time: 0.0 seconds
+```
 
 
-Simple ASCII file containing the explicit representation of vertices and triangles
+####File Formats
+***
+
+Simplicial 2-complexes in input have to be expressed in a text file.
+Accepted input files have to contain the number of vertices of the simplicial complex as long as the list of its top 2-simplices.  For instance:
 
 
 ```
-ply
-format ascii 1.0
-element vertex 2903                         %number of vertices    
-property float32 x
-property float32 y
-property float32 z
-element face 5804                           %number of triangles
-property list uint8 int32 vertex_indices
-end_header
-0.605538 0.183122 -0.472278                 %x y z coordinates
-0.649223 0.1297 -0.494875
-0.601082 0.105512 -0.533343
-0.691245 0.0569483 -0.524762
-.
-.
-.
-3 0 1 2                                    %number of vertices per face and
-3 1 3 4                                    %index of each vertex composing
-3 5 6 2                                    %the face
-3 6 7 8
-3 7 9 10
-3 1 0 11
-3 9 7 12
-3 12 7 6
+6              %number of vertices 
+1 2 4
+1 2 5
+1 3 5
+1 3 6
+1 4 6
+2 3 4
+2 3 6
+2 5 6
+3 4 5
+4 5 6
 ```
-
-######.json
-
-JSON file containing the persistence pairs to be visualized
-
-```
-{"pairs": [                                 %two arrays containing for each pair
-  {"h0":[368,569,                           %coordinates in the scatterplot  
-         0.0772813,0.0281013,-0.0100251,    %coordinates of vertex1
-         0.0472315,0.00624197,-0.00777435]  %coordinates of vertex2
-  },
-  {"h1":[1153,1356,
-         0.0488116,0.00942118,0.00385671,
-         0.0777883,0.0312677,0.00995619,
-         1638,1640,
-         -0.00850592,0.0874782,0.0400173,
-         -0.00703915,0.0241465,0.039699]
- }
-]}
-```
-<br /><br />
 
 
 ####Attribution
 ***
 
 If you use our package in your project we encourage you to cite our work.
-The visualization tool has been published in:
+Please use the following reference:
 
 ```
   @article{VisualizePH,
