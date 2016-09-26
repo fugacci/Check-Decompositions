@@ -62,8 +62,8 @@ Please use the following reference:
 ```
   @article{VisualizePH,
     author       = {D. Bolognini, U. Fugacci},
-    title        = {Persistent homology: a step-by-step introduction for newcomers},
-    month        = September,
-    year         = 2016
+    title        = {Betti splitting from a topological point of view},
+    month        = {September},
+    year         = {2016}
   }
 ```
