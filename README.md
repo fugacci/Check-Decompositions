@@ -44,7 +44,7 @@ Example:
 
 ```
 6              %number of vertices 
-1 2 4
+1 2 4          %triangle of vertices 1, 2, 4
 1 2 5
 1 3 5
 1 3 6
@@ -64,7 +64,7 @@ If you use our package in your project we encourage you to cite our work.
 Please use the following reference:
 
 ```
-  @article{VisualizePH,
+  @article{SpittingForManifolds,
     author       = {D. Bolognini, U. Fugacci},
     title        = {Betti splitting from a topological point of view},
     month        = {September},
