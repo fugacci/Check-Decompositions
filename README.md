@@ -13,7 +13,7 @@ python CheckDecompositions.py
 Then, the user has to enter the file name of the simplicial complex to be tested. For instance: 
 
 ```
-Enter name of file in input: /Examples/ProjectivePlane
+Enter name of file in input: Examples/ProjectivePlane
 ```
 
 Program returns as output:
