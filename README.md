@@ -34,8 +34,12 @@ Required time: 0.0 seconds
 ####File Formats
 ***
 
-Simplicial 2-complexes in input have to be expressed in a text file.
-Accepted input files have to contain the number of vertices of the simplicial complex as long as the list of its top 2-simplices.  For instance:
+Simplicial 2-complexes in input have to be encoded in a text file.
+Accepted input files have to contain 
+* the number of vertices of the simplicial complex,  
+* the list of its top 2-simplices expressed in terms of their vertices (separated by a blank space). 
+
+Example:
 
 
 ```
