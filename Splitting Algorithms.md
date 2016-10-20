@@ -1,10 +1,10 @@
 # Splitting Algorithms
-Macaulay2 code of algorithms for checking the splittability of a simplicial complex
+Macaulay2 code of algorithms for checking the splittability of a simplicial complex with respect to a given field.
 
 ####Homological Splitting Algorithm 
 ***
 
-The following code allows checking if a standard decomposition of a simplicial complex is a homological splitting over a given field:
+The following code allows checking if a standard decomposition of a simplicial complex is a homological splitting with respect to a given field:
 
 ```
 loadPackage "SimplicialComplexes";
@@ -25,7 +25,7 @@ if rank(homology(k,A))==rank(homology(k,A1))+rank(homology(k,A2))+rank(homology(
 ####Betti Splitting Algorithm 
 ***
 
-The following code allows checking if a standard decomposition of a simplicial complex is a Betti splitting over a given field:
+The following code allows checking if a standard decomposition of a simplicial complex is a Betti splitting with respect to a given field:
 
 ```
 isBettiSplitting=(L,L1,L2)->(
@@ -50,7 +50,7 @@ if not isHomologicalSplitting(T,T1,T2) then return false else N=N+1;
 ####Betti Splitting Probability 
 ***
 
-The following code allows computing the Betti splitting probability for a simplicial complex over a given field:
+The following code allows computing the Betti splitting probability for a simplicial complex with respect to a given field:
 
 ```
 BettiSplittingProbability=(L)->(
