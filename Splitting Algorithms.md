@@ -1,60 +1,66 @@
-# Check Decompositions
-Macaulay2 code of the algorithms for checking if a decomposition of a simplicial complex is a homological splitting, a Betti spltting , respectively.
-####Quick Start
+# Splitting Algorithms
+Macaulay2 code of algorithms for checking the splittability of a simplicial complex
+
+####Homological Splitting Algorithm 
 ***
 
 The Python code can be simply executed by writing the following command line:
 
 ```
-python CheckDecompositions.py
+loadPackage "SimplicialComplexes";
+isHomologicalSplitting=(T,T1,T2)->(
+if T1=={} or T2=={} then return true;
+A=simplicialComplex(T);
+A1=simplicialComplex(T1);
+A2=simplicialComplex(T2);
+B=0;
+C=monomialIdeal(A1)+monomialIdeal(A2);
+if dual(C)==ideal(product(gens R)) then return true;
+G=simplicialComplex(C);
+for k from 0 to dim(A) do (
+if rank(homology(k,A))==rank(homology(k,A1))+rank(homology(k,A2))+rank(homology(k-1,G)) then B=B+1
+); if B==dim(A)+1 then return true else return false;);
 ```
 
-Then, the user has to enter the file name of the simplicial complex to be tested. For instance: 
-
-```
-Enter name of file in input: Examples/ProjectivePlane
-```
-
-Program returns as output:
-* the number of vertices and of top simplices of the simplicial complex in input, 
-* the information about the 1-homology of the intersection of each standard decomposition,
-* the time required to perform the computation.
-
-Example:
-
-```
-Number of vertices is 6
-Number of top simplices is 4
-There exist both decompositions having intersection with null 1-homology and decompositions having intersection with non-null 1-homology
-Required time: 0.0 seconds
-```
-
-
-####File Formats
+####Betti Splitting Algorithm 
 ***
 
-Simplicial 2-complexes in input have to be encoded in a text file.
-Accepted input files have to contain 
-* the number of vertices of the simplicial complex,  
-* the list of its top 2-simplices expressed in terms of their vertices (separated by a blank space). 
-
-Example:
-
+The Python code can be simply executed by writing the following command line:
 
 ```
-6              %number of vertices 
-1 2 4          %triangle of vertices 1, 2, 4
-1 2 5
-1 3 5
-1 3 6
-1 4 6
-2 3 4
-2 3 6
-2 5 6
-3 4 5
-4 5 6
+isBettiSplitting=(L,L1,L2)->(
+T=L; T1=L1; T2=L2;
+if not isHomologicalSplitting(T,T1,T2) then return false;
+D=simplicialComplex(L);
+D1=simplicialComplex(L1);
+D2=simplicialComplex(L2);
+F=monomialIdeal(D1)+monomialIdeal(D2);
+J=simplicialComplex(F);
+N=0;
+H=0;
+for k from 0 to dim(J) do (
+M=flatten entries faces(k,J); H=(#M)+H; for j from 0 to #M-1 do (
+T=flatten entries facets(link(D,M_j));
+T1=flatten entries facets(link(D1,M_j));
+T2=flatten entries facets(link(D2,M_j));
+if not isHomologicalSplitting(T,T1,T2) then return false else N=N+1;
+);); if N==H then return true);
 ```
 
+####Betti Splitting Probability 
+***
+
+The Python code can be simply executed by writing the following command line:
+
+```
+BettiSplittingProbability=(L)->(
+N=0;
+for k from 1 to floor(#L/2) do (S=subsets(L,k);
+for j from 0 to #S-1 do (L1=S_j; L2=toList(set(L)-set(L1)); 
+if isBettiSplitting(L,L1,L2) then N=N+1);
+P=N/(2^(#L-1)-1););
+return P);
+```
 
 ####Attribution
 ***
