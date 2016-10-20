@@ -1,5 +1,5 @@
 # Splitting Algorithms
-Macaulay2 code of algorithms for checking the splittability of a simplicial complex with respect to a given field.
+Macaulay2 code of various algorithms for checking the splittability with respect to a given field of a simplicial complex.
 
 ####Homological Splitting Algorithm 
 ***
