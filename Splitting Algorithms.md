@@ -1,6 +1,5 @@
 # Check Decompositions
-Tool for checking if a simplicial 2-complex with non-null top homology is non-trivially decomposable.
-
+Macaulay2 code of the algorithms for checking if a decomposition of a simplicial complex is a homological splitting, a Betti spltting , respectively.
 ####Quick Start
 ***
 
