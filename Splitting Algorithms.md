@@ -28,6 +28,7 @@ if rank(homology(k,A))==rank(homology(k,A1))+rank(homology(k,A2))+rank(homology(
 The following code allows checking if a standard decomposition of a simplicial complex is a Betti splitting with respect to a given field:
 
 ```
+loadPackage "SimplicialComplexes";
 isBettiSplitting=(L,L1,L2)->(
 T=L; T1=L1; T2=L2;
 if not isHomologicalSplitting(T,T1,T2) then return false;
@@ -53,6 +54,7 @@ if not isHomologicalSplitting(T,T1,T2) then return false else N=N+1;
 The following code allows computing the Betti splitting probability for a simplicial complex with respect to a given field:
 
 ```
+loadPackage "SimplicialComplexes";
 BettiSplittingProbability=(L)->(
 N=0;
 for k from 1 to floor(#L/2) do (S=subsets(L,k);
